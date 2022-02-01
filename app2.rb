@@ -15,10 +15,12 @@ while player1.life_points > 0 || player2.life_points > 0
     print player1.show_state
     print player2.show_state 
     puts ""
+
     puts "Passons à la phase de séléction de l'arme : "
-    print player1.weapon_search
-    print player2.weapon_search
+    print player1.weapon_selection
+    print player2.weapon_selection
     puts ""
+
     puts "Passons à la phase d'attaque : "
     player2.attacks(player1)
     if player1.life_points <= 0 

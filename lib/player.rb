@@ -68,23 +68,36 @@ class HumanPlayer < Player
     end
 
     def compute_damage
-        return rand(1..6) * @weapon_level
+        return rand(1..6) * weapon_compute
     end
 
-    def weapon_search
+    def weapon_selection
         weapon_upgrade = weapon_compute
-        if weapon_upgrade > weapon_level
+        if weapon_upgrade > @weapon_level
             puts "Le joueur #{name} sélectionne sa nouvelle arme de niveau #{weapon_upgrade}"
-            #@weapon_level = weapon_upgrade
-        else 
-            puts "Le joueur #{name} conserve son arme de niveau #{weapon_level}."
+            @weapon_level = weapon_upgrade
+        else weapon_upgrade <= @weapon_level
+            puts "Le joueur #{name} conserve son arme de niveau #{@weapon_level}."
         end
 
     end
 
     def weapon_compute
-        return rand(1..6)
+        return rand(1..6) 
     end
+
+    #def healthpack_search
+    #    if healthpack_compute = 1
+    #        puts "Tu n'as rien trouvé... "
+    #    elsif healthpack_compute > 1 && healthpack_compute => 5
+    #        puts "Bravo, tu as trouvé un pack de +50 points de vie !"  
+    #    else healthpack_compute < 5 
+    #        puts "Waow, tu as trouvé un pack de +80 points de vie !"
+    #end
+
+    #def healthpack_compute
+    #    return rand(1..6) 
+    #end
 
     def self.all
         return @all_users
